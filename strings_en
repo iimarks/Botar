@@ -1,0 +1,58 @@
+a:77:{s:20:"add_alreadyActivated";s:44:"This group already activated, nothing to do.";s:18:"add_mustAdminFirst";s:64:"To activate this group, i must be an administrator in this group";s:11:"add_success";s:37:"Success, this group is now activated.";s:11:"ban_success";s:21:"*:?0* banned by *:?1*";s:15:"boardcast_begin";s:26:"Begin boardcasting message";s:22:"boardcast_confirmation";s:48:"Are you sure you want to boardcast this message?";s:14:"boardcast_done";s:56:"Done boardcasting
+Success: :?0
+Failed: :?1
+Total: :?2";s:21:"boardcast_unsupported";s:37:"This type of message is not supported";s:7:"default";s:12:"test english";s:12:"devip_notVip";s:59:"The group *:?0* (`:?1`) is not VIP
+To assign VIP, use /vip";s:13:"devip_success";s:47:"Success, *:?0* (`:?1`) is no longer a VIP Group";s:5:"extra";s:210:"Manage custom triggers.
+Usage:
+`/extra list` Shows all triggers
+`/extra del #trigger` Delete a trigger
+`/extra #trigger <message>` Create a custom trigger
+You can reply to media message to add as a trigger";s:18:"extra_alreadyExist";s:38:"Trigger with name *:?0* already exists";s:13:"extra_deleted";s:30:"Success, trigger *:?0* deleted";s:11:"extra_empty";s:22:"No custom triggers yet";s:14:"extra_notFound";s:39:"No custom trigger found with name *:?0*";s:11:"extra_saved";s:35:"Success, custom trigger *:?0* saved";s:17:"extra_unsupported";s:54:"This type of message can not be used as custom trigger";s:9:"globalban";s:67:"Globally ban a user.
+Usage: `/globalban <id>` or reply for message";s:23:"globalban_alreadyBanned";s:85:"That user is already banned on `:?0`
+To globally unban this user, use `/globalunban`";s:17:"globalban_success";s:37:"Success, *:?0* is now globally banned";s:11:"globalunban";s:68:"Globally unban a user
+Usage: `/globalban <id>` or reply for message";s:21:"globalunban_notbanned";s:32:"This user is not globally banned";s:19:"globalunban_success";s:36:"Success, *:?0* now globally unbanned";s:16:"groups_emptyData";s:24:"There are no gorups yet.";s:13:"groups_normal";s:12:"Groups:
+:?0";s:13:"groups_result";s:87:":?0
+Use /info <id> to show detailed information
+Use /leave <id> to leave from a group";s:18:"groups_unactivated";s:24:"Unactivated Groups:
+:?0";s:10:"groups_vip";s:16:"VIP Groups:
+:?0";s:4:"info";s:99:"Display detailed information about a group.
+Usage: `/info <id>`
+
+To show all groups, use /groups";s:11:"info_result";s:116:"Group information:
+ID: :?0
+Title: :?1
+Language: :?2
+Vip: :?3
+Activated: :?4
+Activated By: :?5
+Time Added: :?6";s:12:"kick_success";s:21:"*:?0* Kicked by *:?1*";s:5:"leave";s:199:"Make bot leave from a group.
+Usage: `/leave <id>` or `/leave` inside group
+
+To show all groups, use /groups
+*Note*: When bot leave a group, all saved data associated with that group will be lost.";s:18:"leave_confirmation";s:83:"Confirm bot leaving group *:?0*?
+All data associated with that group will be lost.";s:4:"lock";s:166:"Lock a media type
+Usage: `/lock <media>` or reply to a media
+
+Available media: `text`, `photo`, `document`, `video`, `voice`, `audio`, `sticker`, `forward`, `game`";s:18:"lock_alreadyLocked";s:63:"Media :?0 is already locked
+
+To unlock this media use /unlock";s:12:"lock_unknown";s:137:"The media type given is unknown.
+
+Available media: `text`, `photo`, `document`, `video`, `voice`, `audio`, `sticker`, `forward`, `game`";s:11:"rules_empty";s:52:"Rules is empty
+use `/setrules <rules>` to set rules";s:8:"setrules";s:47:"Set rules for group
+Usage: `/setrules <rules>`";s:16:"setrules_success";s:21:"Success, rules saved.";s:8:"settings";s:24:"Settings for group *:?0*";s:16:"settings_sending";s:28:"Sending settings via private";s:18:"text_activateFirst";s:33:"Please activate this group first.";s:11:"text_banBot";s:32:"Kicking :?0, bots is not allowed";s:13:"text_canceled";s:8:"Canceled";s:15:"text_changeLang";s:36:"Please select your desired language.";s:10:"text_empty";s:11:"No data yet";s:10:"text_error";s:60:"An error occured, please try again or contact administrator.";s:17:"text_globalBanned";s:36:"Kicking :?0 because globally banned.";s:18:"text_groupNotFound";s:66:"Couldn't find group with id `:?0`
+To show all groups, use /groups";s:23:"text_groupNotRegistered";s:51:"This group is not registered, please register first";s:7:"text_id";s:30:"Chat ID: `:?0`
+Your ID: `:?1`";s:17:"text_onlyAdminBot";s:45:"I must be an administrator in this chat first";s:19:"text_onlyAuthorized";s:42:"You are not authorized to use this command";s:21:"text_onlyGroupExecute";s:43:"This operation only available inside group.";s:19:"text_onlySuperAdmin";s:49:"You don't have permission to perform this action.";s:19:"text_onlysupergroup";s:33:"You can only use me in supergroup";s:19:"text_replyToMessage";s:23:"Please reply to message";s:11:"text_resend";s:53:"Please resend a command that you send before in group";s:10:"text_rules";s:10:"Read Rules";s:10:"text_start";s:64:"Hi, i'm your group assistant, please select your language first.";s:12:"text_startMe";s:46:"Please start me first before i can contact you";s:12:"text_success";s:7:"Success";s:12:"text_welcome";s:34:"This is welcome message in english";s:19:"text_welcomePrivate";s:32:"I send you rules in private chat";s:6:"unlock";s:150:"Unlock a media type
+Usage: `/unlock <media>`
+
+Available media: `text`, `photo`, `document`, `video`, `voice`, `audio`, `sticker`, `forward`, `game`";s:22:"unlock_alreadyUnlocked";s:62:"Media :?0 is already unlocked
+
+To lock this media, use /lock";s:3:"vip";s:84:"Grant VIP into a group
+Usage: `/vip <id>` or simply send `/vip` inside target group";s:14:"vip_alreadyVip";s:65:"The group *:?0* (`:?1`) is already VIP
+To remove VIP, use /devip";s:11:"vip_success";s:41:"Success, *:?0* (`:?1`) now is a VIP Group";s:4:"warn";s:77:"Warn a user.
+Usage: Reply user's message, then `/warn` or `/warn <username>`";s:7:"welcome";s:153:"Set welcome message for a group.
+Usage: `/welcome <welcome message>`
+
+You can use these placeholders:
+`$name`, `$username`, `$id`, `$title`, `$rules`";s:20:"welcome_linkDisabled";s:68:"*Note*: Welcome message link is disabled, use /settings to enable it";s:15:"welcome_success";s:36:"Success, welcome message set.
+
+:?0";s:19:"welcome_unactivated";s:63:"*Note*: Welcome message is disabled, use /settings to enable it";s:19:"welcome_unsupported";s:52:"This message type can not be used as welcome message";s:13:"test_commands";s:0:"";}
