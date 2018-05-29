@@ -11,6 +11,6 @@ _ البوت يعمل ب `/, !, #` _
 عربي | انجليزي | لغات اخرى ..
 
 
-المتحكمين بالبوت 
+Command | Description
 --- | ---
-المطور | مساعد المطور | المدير | المشرف
+/start | Displays general information about the bot and list of commands.
