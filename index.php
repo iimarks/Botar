@@ -18,6 +18,8 @@ $messageData = isset($updateData["callback_query"]) ? $updateData["callback_quer
 $messageTime = $messageData["date"];
 $chatId = $messageData["chat"]["id"];
 $messageId = $messageData["message_id"];
+$messageText = $messageData["text"];
+
 
 if(isset($updateData["callback_query"])){
     $data = $updateData["callback_query"]["data"];
@@ -36,7 +38,6 @@ if(isset($updateData["callback_query"])){
         exit();
     }
 
-    $messageText = $messageData["text"];
 
     //if text is a bot command
     if(preg_match("/^[\/#!].*(@".$botUsername.")*/",$messageText)){
