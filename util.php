@@ -272,3 +272,28 @@ function sendChatAction($arg){
     ];
     sendCommand("sendChatAction",$data);
 }
+
+// forwardMessage function
+function forwardMessage($fromChat,$fromMessage,$toChat=false){
+    global $chatId;
+
+    //if forwarded message not specified, return
+    if(empty($fromChat) || empty($fromMessage)){
+        return false;
+    }
+
+    $data = array(
+        "from_chat_id" => $fromChat,
+        "message_id" => $fromMessage
+    );
+
+    // if toChat is not specified, send message to received chat id
+    if(!$toChat){
+        $data["chat_id"] = $chatId;
+    }else{
+        $data["chat_id"] = $toChat;
+    }
+
+    $result = sendCommand("forwardMessage",$data);
+    return $result;
+}
