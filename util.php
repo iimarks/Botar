@@ -65,6 +65,181 @@ function sendCommand($command,$data=false,$fullReturn=false){
     curl_close($ch);
     return $result;
 }
+// sendMedia function 
+function sendMedia($chatId,$type,$file){
+    if(is_file($file)){
+        $file = new CURLFile($file);
+    }
+    $method = 'send'.$type;
+    $data = [
+        'chat_id'=>$chatId,
+        $type=>$file
+        ];
+    return sendCommand($method,$data);
+}
+// deleteMessage function
+function deleteMessage($chatId,$messageId){
+    if($chatId and $messageId){
+        $data = ['chat_id'=>$chat_id,'message_id'=>$messageId];
+        $ret = sendCommand('deleteMessage',$data);
+    }
+    return $ret;
+} 
+// deleteMessages function
+function deleteMessages($chatId,$min,$max){
+    
+}
+// start admin functions 
+    // kickChatMember function
+function kickChatMember($chatId, $userId, $untilDate = null){
+    $data = [
+        'chat_id'=>$chatId,
+        'user_id'=>$userId
+        ];
+    if($untilDate){
+        $data['until_date'] = $untilDate;
+    }
+    return sendCommand('kickChatMember',$data);
+}
+    // promoteChatMember function
+function promoteChatMember($chatId, $userId,$can_change_info = null, $can_post_messages = null, $can_edit_messages = null, $can_delete_messages = null, $can_invite_users = null, $can_restrict_members = null, $can_pin_messages = null, $can_promote_members = null){
+    $data = [
+		'chat_id' => $chatId,
+		'user_id' => $userId
+		];
+	if(isset($can_change_info))
+	{
+		$data['can_change_info'] = $can_change_info;
+	}
+	if(isset($can_post_messages))
+	{
+		$data['can_post_messages'] = $can_post_messages;
+	}
+	if(isset($can_edit_messages))
+	{
+		$data['can_edit_messages'] = $can_edit_messages;
+	}
+	if(isset($can_delete_messages))
+	{
+		$data['can_delete_messages'] = $can_delete_messages;
+	}
+	if(isset($can_invite_users))
+	{
+		$data['can_invite_users'] = $can_invite_users;
+	}
+	if(isset($can_restrict_members))
+	{
+		$data['can_restrict_members'] = $can_restrict_members;
+	}
+	if(isset($can_pin_messages))
+	{
+		$data['can_pin_messages'] = $can_pin_messages;
+	}
+	if(isset($can_promote_members))
+	{
+		$data['can_promote_members'] = $can_promote_members;
+	}
+	return sendCommand('promoteChatMember',$data);
+}
+//function restrictChatMember
+function restrictChatMember($chatId, $userId, $untilDate = null, $can_send_messages = null, $can_send_media_messages = null, $can_send_other_messages = null, $can_add_web_page_previews = null, $response = false){
+    $data = [
+		'chat_id' => $chatId,
+		'user_id' => $userId
+		];
+	if(isset($untilDate))
+	{
+		$data['until_date'] = $untilDate;
+	}
+	if(isset($can_send_messages))
+	{
+		$data['can_send_messages'] = $can_send_messages;
+	}
+	if(isset($can_send_media_messages))
+	{
+		$data['can_send_media_messages'] = $can_send_media_messages;
+	}
+	if(isset($can_send_other_messages))
+	{
+		$data['can_send_other_messages'] = $can_send_other_messages;
+	}
+	if(isset($can_add_web_page_previews))
+	{
+		$data['can_add_web_page_previews'] = $can_add_web_page_previews;
+	}
+	return sendCommand('restrictChatMember',$data);
+}
+// unbanChatMember function
+function unbanChatMember($chatId, $userId){
+	$data = [
+		'chat_id' => $chatId,
+		'user_id' => $userId
+		];
+	return sendCommand('unbanChatMember',$data);
+}
+// pinChatMessage function 
+function pinChatMessage($chatId, $messageId, $notification = null){
+	$data = [
+		'chat_id' => $chatId,
+		'message_id' => $messageId
+		];
+	if(isset($notification)){
+		$data['disable_notification'] = $notification;
+	}
+	return sendCommand('pinChatMessage',$data);
+}
+// unpinChatMessage function 
+function unpinChatMessage($chatId){
+    return sendCommand('unpinChatMessage',['chat_id'=>$chat_id]);
+}
+// function setChatTitle
+function setChatTitle($chatId, $title)
+{
+	$data = [
+		'chat_id' => $chatId,
+		'title' => $title
+		];
+   return sendCommand('setChatTitle',$data); 
+}
+//function setChatDescription
+function setChatDescription($chatId, $desc = null){
+	$data = [
+		'chat_id' => $chatId
+		];
+	if($desc != null){
+		$data['description'] = $desc;
+	}
+	return sendCommand('setChatDescription',$data); 
+}
+//function setChatPhoto
+function setChatPhoto($chatId, $photo){
+    if(is_file($photo)){
+        $photo = new CURLFile($photo);
+    }
+    
+    $data = [
+        'chat_id' => $chatId,
+        'photo' => $photo
+    ];
+    return sendCommand('setChatPhoto', $data);
+} 
+// function deleteChatPhoto
+function deleteChatPhoto($chatId){
+    return sendCommand('deleteChatPhoto',['chat_id'=>$chatId]);
+}
+// getChatMembersCount function
+function getChatMembersCount($chatId){
+    return sendCommand('getChatMembersCount',['chat_id'=>$chatId]);
+}
+// getChatAdministrators function
+function getChatAdministrators($chatId){
+    return sendCommand('getChatAdministrators',['chat_id'=>$chatId]);
+}
+// getChatMember function
+function getChatMember($chatId,$userId){
+    return sendCommand('getChatMember',['chat_id'=>$chatId,'user_id'=>$userId]);
+}
+
 
 
 // database connect function
