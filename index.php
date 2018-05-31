@@ -39,17 +39,16 @@ if(isset($updateData["callback_query"])){
     }
 
 
-    //if text is a bot command
-    if(preg_match("/^[\/#!].*(@".$botUsername.")*/",$messageText)){
-        //if command for other bot, exit
-        if(preg_match("/^\/.*@(?!".$botUsername.")/",$messageText)){
-            exit();
-        }
-
-        //splitting text to command and argument
-        $messageText = explode(" ",$messageText,2);
-        $command = $messageText[0];
-        $arg = isset($messageText[1]) ? $messageText[1] : "";
+           //splitting text to command and argument
+        $explodetext = explode(" ",$messageText,2);
+        $command = $explodetext[0];
+        $arg = isset($explodetext[1]) ? $explodetext[1] : "";
 
         //removing "/" character and bot username from command
         $command = str_replace("@$botUsername","",substr($command,1));
+
+
+        if(function_exists("command_$command")){
+            call_user_func("command_$command",$arg);
+        }
+    }
