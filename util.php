@@ -43,3 +43,34 @@ function sendMessage($text,$replyMessage=true,$replyMarkup=false,$toChat=false){
     $result = sendCommand("sendMessage",$data);
     return $result;
 }
+
+
+// sendCommand function
+function sendCommand($command,$data=false,$fullReturn=false){
+    //if data is not given, use GET method
+    if(!$data){
+        $url = apiUrl($command);
+        $result = file_get_contents($url);
+        $result = json_decode($result,true);
+        return $fullReturn ? $result : $result["result"];
+    }
+    //else, use POST with curl
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, apiUrl($command));
+    curl_setopt($ch, CURLOPT_POST, count($data));
+    curl_setopt($ch, CURLOPT_POSTFIELDS,$data);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
+
+    $result = curl_exec($ch);
+    curl_close($ch);
+    return $result;
+}
+
+
+// database connect function
+function databaseConnect(){
+    global $databaseHost,$databaseName,$databaseUsername,$databasePassword;
+
+    $database = new PDO("mysql:host=$databaseHost;dbname=$databaseName",$databaseUsername,$databasePassword);
+    return $database;
+}
