@@ -74,3 +74,8 @@ function databaseConnect(){
     $database = new PDO("mysql:host=$databaseHost;dbname=$databaseName",$databaseUsername,$databasePassword);
     return $database;
 }
+
+// putLog function
+function putLog($text){
+    file_put_contents("Logs/bot.log",date("H:i:s")." => ".$text."\n",FILE_APPEND);
+}
