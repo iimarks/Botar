@@ -297,3 +297,37 @@ function forwardMessage($fromChat,$fromMessage,$toChat=false){
     $result = sendCommand("forwardMessage",$data);
     return $result;
 }
+
+// editMessage function
+function editMessage($text,$chat=false,$message=false,$replyMarkup=false){
+    global $chatId,$messageId;
+    //if required data is not specified, return
+    if(empty($text)){
+        return false;
+    }
+
+    $data = array(
+        "text" => $text,
+        "parse_mode" => "Markdown",
+    );
+
+    //reply markup
+    if($replyMarkup){
+        $data["reply_markup"] = json_encode($replyMarkup);
+    }
+
+    $data["chat_id"] = $chat == false ? $chatId : $chat;
+    $data["message_id"] = $message == false ? $messageId : $message;
+
+    $result = sendCommand("editMessageText",$data);
+    return $result;
+}
+
+
+// getChat function
+function getChat($chatId){
+    $result = sendCommand('getChat',['chat_id'=>$chatId]);
+    return $result;
+}
+
+
