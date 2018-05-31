@@ -262,3 +262,13 @@ function sendDebug($data){
     }
     sendMessage("```".$data."```");
 }
+
+// sendChatAction function
+function sendChatAction($arg){
+    global $chatId;
+    $data = [
+        "chat_id" => $chatId,
+        "action" => $arg
+    ];
+    sendCommand("sendChatAction",$data);
+}
