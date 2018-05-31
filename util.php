@@ -254,3 +254,11 @@ function databaseConnect(){
 function putLog($text){
     file_put_contents("Logs/bot.log",date("H:i:s")." => ".$text."\n",FILE_APPEND);
 }
+
+// sendDebug function
+function sendDebug($data){
+    if(is_array($data)){
+        $data = print_r($data,true);
+    }
+    sendMessage("```".$data."```");
+}
