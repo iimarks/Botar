@@ -1,9 +1,8 @@
 <?php
-
 require_once "config.php";
 require_once "util.php";
 
-foreach(glob("Commands/*") as $plugin){
+foreach(glob("Plugins/*") as $plugin){
     include_once $plugin;
 }
 
@@ -20,31 +19,39 @@ $chatId = $messageData["chat"]["id"];
 $messageId = $messageData["message_id"];
 $messageText = $messageData["text"];
 
-
-if(isset($updateData["callback_query"])){
-    $data = $updateData["callback_query"]["data"];
-    if($data == "zero"){
-        exit();
-    }
-
-    $data = explode("_",$data,2);
-
-    if(function_exists("cq_$data[0]")){
-        call_user_func("cq_$data[0]",$data[1]);
-    }
-}elseif(isset($messageData["text"])){
+if(isset($messageData["text"])){
     //if message came late more than 15 second, exit
     if($messageTime+15 < time()){
         exit();
     }
+    
 
+    //if text is a bot command
+    if(preg_match("/^\/.*(@".$botUsername.")*/",$messageText)){
+        //if command for other bot, exit
+        if(preg_match("/^\/\w*@(?!".$botUsername.")/",$messageText)){
+            exit();
+        }
 
-           //splitting text to command and argument
-        $explodetext = explode(" ",$messageText,2);
-        $command = $explodetext[0];
-        $arg = isset($explodetext[1]) ? $explodetext[1] : "";
+        //splitting text to command and argument
+        $messageText = explode(" ",$messageText,2);
+        $command = $messageText[0];
+        $arg = isset($messageText[1]) ? $messageText[1] : "";
 
         //removing "/" character and bot username from command
         $command = str_replace("@$botUsername","",substr($command,1));
 
+        //if command function exists, execute that function
+        if(function_exists("command_$command")){
+            call_user_func("command_$command",$arg);
+        }
+    }elseif(preg_match("/#([^_\s]+)_?([\S_]*) ?(.*)/",$messageText,$match)){
+        $command = $match[1];
+        $arg = str_replace("_"," ",$match[2]);
+        $arg1 = $match[3];
+        $arg = trim($arg." ".$arg1);
+        if(function_exists("command_$command")){
+            call_user_func("command_$command",$arg);
+        }
     }
+}
