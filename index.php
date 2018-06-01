@@ -47,8 +47,4 @@ if(isset($updateData["callback_query"])){
         //removing "/" character and bot username from command
         $command = str_replace("@$botUsername","",substr($command,1));
 
-
-        if(function_exists("command_$command")){
-            call_user_func("command_$command",$arg);
-        }
     }
