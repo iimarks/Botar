@@ -85,10 +85,7 @@ function deleteMessage($chatId,$messageId){
     }
     return $ret;
 } 
-// deleteMessages function
-function deleteMessages($chatId,$min,$max){
-    
-}
+
 // start admin functions 
     // kickChatMember function
 function kickChatMember($chatId, $userId, $untilDate = null){
