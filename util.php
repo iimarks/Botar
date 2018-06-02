@@ -327,4 +327,20 @@ function getChat($chatId){
     return $result;
 }
 
-
+// getUserProfilePhotos function
+function getUserProfilePhotos($userId, $offset = false, $limit = false)
+{
+ $data = [
+   'user_id'=>$userId
+  ];
+ if(isset($offset))
+ {
+  $data['offset'] = $offset;
+ }
+ if(isset($limit))
+ {
+  $data['limit'] = $limit;
+ }
+    $result = sendCommand('getUserProfilePhotos', $data);
+    return $result
+}
