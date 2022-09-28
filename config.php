@@ -1,13 +1,13 @@
 <?php
 $TOKEN = ""; // bot token
-$botUsername = ""; // bot username without @
+$ botUsername  =  "" ؛ // bot username بدون @
 
-/*
-$databaseHost = "localhost";
-$databaseName = ""; // db name
-$databaseUsername = ""; // db username
-$databasePassword = ""; // db password
-*/
+/ *
+$   databaseHost   =   ""  Kvifihbot
+$ databaseName = "" ؛ // اسم ديسيبل
+$   databaseUsername   =   ""
+$   databasePassword    =    ""   ؛   // ديسيبل كلمة السر
+* /
 
 $sudoID = ""; // sudo id
 
