@@ -1,6 +1,6 @@
 <?php
-$TOKEN = ""; // bot token
-$botUsername = ""; // bot username without @
+$TOKEN = "6848685069:AAHs7JolrA_vQmcZZG-5f29U4FytwjgLbCM"; // bot token
+$botUsername = "sasamusi_cbot"; // bot username without @
 
 /*
 $databaseHost = "localhost";
