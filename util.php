@@ -1,7 +1,7 @@
 <?php
 
 function apiUrl($command){
-    global $TOKEN;
+    global $TOKEN;8315739210:AAHF_SehKPLsg_l5OdwOYN81-0engoI36Pk
     return "https://api.telegram.org/bot$TOKEN/$command";
 }
 
